@@ -8,7 +8,7 @@ void printAlphabet(char alphabet[]);
 void encryptMessage(char buffer[], int size);
 void decryptMessage(char description[], int size);
 
-int main(int argc char* argv[])
+int main(int argc, char* argv[])
 {
 	if(argc != 3)
 	{

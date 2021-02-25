@@ -8,8 +8,15 @@ void printAlphabet(char alphabet[]);
 void encryptMessage(char buffer[], int size);
 void decryptMessage(char description[], int size);
 
-int main()
+int main(int argc, char* argv[])
 {
+	if(argc != 3)
+	{
+		puts("ERROR: Incorrect number of arguments!");
+		puts("./Ciphertext [original_file][encrypted_file]");
+		return -1;
+	}
+
 	int size;
 	char read;
 	char alphabet[25];
@@ -24,7 +31,7 @@ int main()
 	if(in_file_encryption == NULL)
 	{
 		puts("ERROR: File encryption cannot be opened!");
-		return -1;
+		return -2;
 	}
 	fseek(in_file_encryption, 0, SEEK_END);
 	size = ftell(in_file_encryption);
@@ -49,7 +56,7 @@ int main()
 	if(out_file_encryption == NULL)
 	{
 		puts("ERROR: Cannot write to the encrypted file!");
-		return -2;
+		return -3;
 	}
 
 	encryptMessage(buffer, size);
@@ -66,7 +73,7 @@ int main()
 	if(in_file_decryption == NULL)
         {
                 puts("ERROR: File decryption cannot be opened!");
-                return -3;
+                return -4;
         }
         fseek(in_file_decryption, 0, SEEK_END);
         size = ftell(in_file_decryption);
@@ -90,7 +97,7 @@ int main()
         if(out_file_decryption == NULL)
         {
                 puts("ERROR: Cannot write to the decrypted file!");
-                return -4;
+                return -5;
         }
 
         decryptMessage(description, size);

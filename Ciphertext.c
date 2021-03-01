@@ -19,9 +19,9 @@ int main(int argc, char* argv[])
 
 	int size;
 	char read;
-	char alphabet[25];
-	char alphabetEncrypt[25];
-	char alphabetDecrypt[25];
+	char alphabet[26];
+	char alphabetEncrypt[26];
+	char alphabetDecrypt[26];
 	FILE *in_file_encryption;
 	FILE *in_file_decryption;
 	FILE *out_file_encryption;
